@@ -15,7 +15,7 @@ ShopGUI plugin for Nukkit and Nukkit MOT
 3. [Economy-Angga7Togk](https://github.com/angga7togk/EconomyAPI-NK/releases) or [Economy-OneBone](https://github.com/Nukkit-coders/EconomyAPI)
 
 ### Economy Depend Supported
-1. EconomyAPI (Angga7Togk) [EconomyAPI](https://github.com/angga7togk/EconomyAPI-PNX)
+1. EconomyAPI (Angga7Togk) [EconomyAPI](https://github.com/angga7togk/EconomyAPI-NK/releases)
 2. EconomyAPI (Onebone) [EconomyAPI](https://cloudburstmc.org/resources/economyapi.14)
 
 ## Commands For Operator
