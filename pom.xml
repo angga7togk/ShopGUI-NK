@@ -21,20 +21,26 @@
     </repositories>
     <dependencies>
         <dependency>
-            <groupId>cn.powernukkitx</groupId>
-            <artifactId>powernukkitx</artifactId>
-            <version>1.20.30-r1</version>
+            <groupId>cn.nukkit</groupId>
+            <artifactId>Nukkit</artifactId>
+            <version>MOT-SNAPSHOT</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/../../project-7togknetwork-plugin/libs/Nukkit-MOT-SNAPSHOT.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.github.IWareQ</groupId>
             <artifactId>FakeInventories</artifactId>
-            <version>1.1.5</version>
+            <version>1.1.8</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/../../project-7togknetwork-plugin/libs/FakeInventories-1.1.8.jar</systemPath>
         </dependency>
         <dependency>
-            <groupId>com.github.angga7togk</groupId>
-            <artifactId>EconomyAPi-PNX</artifactId>
-            <version>1.0.0</version>
-	    </dependency>
+            <groupId>angga7togk.economyapi</groupId>
+            <artifactId>EconomyAPI</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/../../project-7togknetwork-plugin/libs/EconomyAPI-1.0-SNAPSHOT.jar</systemPath>
+        </dependency>
         <dependency>
             <groupId>ru.nukkitx</groupId>
             <artifactId>formapi</artifactId>

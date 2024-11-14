@@ -16,17 +16,19 @@ import angga7togk.shopgui.ShopGUI;
 public class SGMenu {
 
     private final ShopGUI plugin;
-    public SGMenu(ShopGUI plugin){
+
+    public SGMenu(ShopGUI plugin) {
         this.plugin = plugin;
     }
 
-    public void mainShop(Player player){
+    public void mainShop(Player player) {
         FakeInventory inv = new FakeInventory(InventoryType.DOUBLE_CHEST);
         inv.setTitle(TextFormat.BOLD + "SHOP");
         Map<String, String> itemEvent = new HashMap<>();
-        for (String category : plugin.shop.getSection("category").getKeys(false)){
+        for (String category : plugin.shop.getSection("category").getKeys(false)) {
             String[] items = plugin.shop.getString("category." + category).split(":");
-            inv.addItem( Item.get(Integer.parseInt(items[0]), Integer.parseInt(items[1]), 1).setCustomName(TextFormat.AQUA + category));
+            inv.addItem(Item.get(Integer.parseInt(items[0]), Integer.parseInt(items[1]), 1)
+                    .setCustomName(TextFormat.AQUA + category));
             itemEvent.put(items[0] + ":" + items[1], category);
         }
 
@@ -87,8 +89,8 @@ public class SGMenu {
             } else if (item.getCustomName().equals(TextFormat.YELLOW + "Back To Main Shop")) {
                 mainShop(target);
             } else {
-                player.removeWindow(inv);
-                onCheckout(target, Item.get(item.getId(), item.getDamage()), price);
+                inv.onClose(player);
+                this.plugin.getServer().getScheduler().scheduleDelayedTask(this.plugin, () -> onCheckout(target, Item.get(item.getId(), item.getDamage()), price), 5);
             }
 
         });
@@ -96,13 +98,14 @@ public class SGMenu {
         player.addWindow(inv);
     }
 
-    protected void onCheckout(Player player, Item item, double price){
+    protected void onCheckout(Player player, Item item, double price) {
         CustomForm form = new CustomForm(TextFormat.BOLD + "Checkout");
         form.addLabel("§ehow much do you want to buy?");
         form.addInput("Amount", "64");
 
         form.send(player, (targetP, targetF, data) -> {
-            if (data == null) return;
+            if (data == null)
+                return;
             if (data.get(1) == null) {
                 targetP.sendMessage(ShopGUI.prefix + "§cthe form cannot be empty!");
                 return;
@@ -122,7 +125,7 @@ public class SGMenu {
                 return;
             }
 
-            if(myMoney < (price * amount)){
+            if (myMoney < (price * amount)) {
                 targetP.sendMessage(ShopGUI.prefix + "§cYou dont have enough money!");
                 return;
             }
@@ -132,13 +135,14 @@ public class SGMenu {
         });
     }
 
-    protected void onBuy(Player player, Item item, double totalPrice){
+    protected void onBuy(Player player, Item item, double totalPrice) {
         SimpleForm form = new SimpleForm(TextFormat.BOLD + "Confirmation");
-        form.setContent("§l§ePurchase details\n§rItems, §a" + item.getName() + "\n§rAmount, §a" + item.getCount() + "\n§rTotalPrice, §a" + totalPrice + "\n\n§e@7togksmp");
+        form.setContent("§l§ePurchase details\n§rItems, §a" + item.getName() + "\n§rAmount, §a" + item.getCount()
+                + "\n§rTotalPrice, §a" + totalPrice + "\n\n§e@7togksmp");
         form.addButton("§l§aBuy Now\n§rTap To Buy");
         form.addButton("§l§cCancel\n§rTap To Cancel");
         form.send(player, (targetP, targetF, data) -> {
-            if(data == -1 || data == 1){
+            if (data == -1 || data == 1) {
                 targetP.sendMessage(ShopGUI.prefix + "§corder cancelled");
                 return;
             }

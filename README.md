@@ -11,8 +11,8 @@ ShopGUI plugin for [PowerNukkitX](https://github.com/PowerNukkitX/PowerNukkitX),
 
 ### Dependency
 1. [FormAPI](https://github.com/ScarletRedMan/FormAPI).
-2. [FakeInventories v1.1.5](https://github.com/IWareQ/FakeInventories/releases/tag/v1.1.5).
-3. [Economy](#economy-depend-supported)
+2. [FakeInventories v1.1.8](https://github.com/IWareQ/FakeInventories/releases/tag/v1.1.8) or [FakeInventories-Nukkit-MOT](https://github.com/angga7togk/FakeInventories-Nukkit-MOT/releases/tag/mot)
+3. [Economy-Angga7Togk](https://github.com/angga7togk/EconomyAPI-NK/releases) or [Economy-OneBone](https://github.com/Nukkit-coders/EconomyAPI)
 
 ### Economy Depend Supported
 1. EconomyAPI (Angga7Togk) [EconomyAPI](https://github.com/angga7togk/EconomyAPI-PNX)
