@@ -1,5 +1,5 @@
 # ShopGUI-PNX
-ShopGUI plugin for [PowerNukkitX](https://github.com/PowerNukkitX/PowerNukkitX), 
+ShopGUI plugin for Nukkit and Nukkit MOT
 
 ## Getting Started
 
